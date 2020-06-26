@@ -27,15 +27,15 @@ def botChoiceMedium():
 
     precedence = ["rock", "paper", "scissors"]
 
-    randomChoice = random.randint(0, 2)
-
+    randomChoice = random.randint(0, len(precedence) - 1)
+    
     return precedence[randomChoice]
 
 def botChoiceHard(yourChoice):
 
     precedence = ["rock", "paper", "scissors"]
 
-    max = 10
+    max = 100
     randomChoice = random.randint(0, max)
     yourChoiceIndex = precedence.index(yourChoice)
 
@@ -47,9 +47,7 @@ def botChoiceHard(yourChoice):
         #return precedence[random.randint(0, 2)]
 
     else:
-        if yourChoiceIndex in range(2):
-            return precedence[yourChoiceIndex + 1]
-        return precedence[0]
+        return precedence[yourChoiceIndex%2 + 1]
 
 
 def botChoiceImpossible(yourChoice):
@@ -58,6 +56,4 @@ def botChoiceImpossible(yourChoice):
 
     yourChoiceIndex = precedence.index(yourChoice)
 
-    if yourChoiceIndex in range(2):
-        return precedence[yourChoiceIndex+1]
-    return precedence[0]
+    return precedence[yourChoiceIndex%2 + 1]
